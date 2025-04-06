@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Brick : MonoBehaviour, IPooledObject
 {
+    public static event Action OnBrickStruck; // A call to the CanvasTrackers' Increment Score Count function without a hard reference-- the Observer Pattern!
     public event IPooledObject.OnDisable OnDestroy;
+    
     [SerializeField] Rigidbody2D rB;
     [SerializeField] Animator anim;
 
@@ -28,5 +31,6 @@ public class Brick : MonoBehaviour, IPooledObject
     {
         anim.SetBool("StruckByBall", true);
         Invoke("SelfDestroy", .3f);
+        OnBrickStruck?.Invoke();
     }
 }

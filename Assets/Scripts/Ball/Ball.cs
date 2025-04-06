@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour, IPooledObject
 {
+    public static event Action OnLifeLost; // A call to the CanvasTrackers' Decrement Life Count function without a hard reference-- the Observer Pattern!
     public event IPooledObject.OnDisable OnDestroy;
+    
     [SerializeField] Rigidbody2D rB;
 
     // Awake is called on the first active frame update
@@ -24,7 +27,11 @@ public class Ball : MonoBehaviour, IPooledObject
     // If this ball is out of bounds, it freezes and disables itself!
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SelfDestroy();
+        if (collision.gameObject.layer == 3) 
+        {
+            SelfDestroy();
+            OnLifeLost?.Invoke();
+        }
     }
 
 }

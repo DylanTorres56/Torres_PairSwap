@@ -16,6 +16,7 @@ public class SpawnBrick : MonoBehaviour
         BrickSpawn();
     }
 
+    // This function spawns a brick from the brick object pool.
     void BrickSpawn()
     {
         float spacer;
