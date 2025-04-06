@@ -10,11 +10,13 @@ public class SpawnBall : MonoBehaviour
     private void OnEnable()
     {
         Ball.OnLifeLost += BallSpawn;
+        AddBallPowerUp.OnPowerUpApplied += BallSpawn;
     }
 
     private void OnDisable()
     {
         Ball.OnLifeLost -= BallSpawn;
+        AddBallPowerUp.OnPowerUpApplied -= BallSpawn;
     }
 
     // Start is called before the first frame update

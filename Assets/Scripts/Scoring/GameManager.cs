@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static event Action OnPowerUpSpawnQuotaHit;
+
     [SerializeField] TextMeshProUGUI scoreTracker; // The text displaying the player's current score.
     [SerializeField] TextMeshProUGUI lifeTracker; // The text displaying the player's current lives.
 
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         Brick.OnBrickStruck += IncrementScoreCount;
         Ball.OnLifeLost += DecrementLifeCount;
+        AddBallPowerUp.OnPowerUpApplied += IncrementLifeCount;
     }
 
     // When this Canvas is disabled, it unsubscribes to the OnBrickStruck and OnLifeLost delegates.
@@ -31,12 +35,24 @@ public class GameManager : MonoBehaviour
     {
         Brick.OnBrickStruck -= IncrementScoreCount;
         Ball.OnLifeLost -= DecrementLifeCount;
+        AddBallPowerUp.OnPowerUpApplied -= IncrementLifeCount;
     }
 
     public void IncrementScoreCount() 
     {
         scoreCount += 100;
         scoreTracker.text = $"SCORE: {scoreCount}";
+
+        if (scoreCount % 700 == 1) 
+        {
+            OnPowerUpSpawnQuotaHit?.Invoke();
+        }
+    }
+
+    public void IncrementLifeCount()
+    {
+        lifeCount++;
+        lifeTracker.text = $"LIVES: {lifeCount}";
     }
 
     public void DecrementLifeCount()
