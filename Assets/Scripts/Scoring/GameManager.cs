@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class CanvasTrackers : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreTracker; // The text displaying the player's current score.
     [SerializeField] TextMeshProUGUI lifeTracker; // The text displaying the player's current lives.
@@ -42,5 +43,11 @@ public class CanvasTrackers : MonoBehaviour
     {
         lifeCount--;
         lifeTracker.text = $"LIVES: {lifeCount}";
+
+        if (lifeCount <= 0) 
+        {
+            SceneManager.LoadScene(2);
+        }
     }
+
 }

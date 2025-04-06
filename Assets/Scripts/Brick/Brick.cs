@@ -29,8 +29,11 @@ public class Brick : MonoBehaviour, IPooledObject
     // If a ball strikes this brick, play its struck animation and disable it once finished!
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        anim.SetBool("StruckByBall", true);
-        Invoke("SelfDestroy", .3f);
-        OnBrickStruck?.Invoke();
+        if (collision.gameObject.layer == 6) 
+        {
+            anim.SetBool("StruckByBall", true);
+            Invoke("SelfDestroy", .3f);
+            OnBrickStruck?.Invoke();
+        }
     }
 }
