@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
 
         if (lifeCount <= 0) 
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(2); // Transport the player to Game Over!
+            // SceneManagement.Instance.ToGameOver(); // Use the singleton to transport the player to Game Over!
         }
     }
 
