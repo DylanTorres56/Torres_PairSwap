@@ -7,13 +7,14 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static event Action OnPowerUpSpawnQuotaHit;
-
     [SerializeField] TextMeshProUGUI scoreTracker; // The text displaying the player's current score.
     [SerializeField] TextMeshProUGUI lifeTracker; // The text displaying the player's current lives.
 
     [SerializeField] int scoreCount; // The amount of points the player has. Score is gained upon striking bricks.
     [SerializeField] int lifeCount; // The amount of lives the player has. Lives are lost when no ball is active.
+
+    [SerializeField] int scoreToClear; // The required score needed to clear the level. MUST BE DIVISIBLE BY 100!
+    [SerializeField] int gameOverScreenIndex; // When getting a Game Over, go to this screen.
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +42,9 @@ public class GameManager : MonoBehaviour
         scoreCount += 100;
         scoreTracker.text = $"SCORE: {scoreCount}";
 
-        if (scoreCount % 700 == 1) 
+        if (scoreCount == scoreToClear) 
         {
-            OnPowerUpSpawnQuotaHit?.Invoke();
+            SceneManager.LoadScene(gameOverScreenIndex); // Transport the player to Game Over!
         }
     }
 
@@ -60,8 +61,7 @@ public class GameManager : MonoBehaviour
 
         if (lifeCount <= 0) 
         {
-            SceneManager.LoadScene(2); // Transport the player to Game Over!
-            // SceneManagement.Instance.ToGameOver(); // Use the singleton to transport the player to Game Over!
+            SceneManager.LoadScene(gameOverScreenIndex); // Transport the player to Game Over!            
         }
     }
 

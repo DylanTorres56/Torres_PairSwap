@@ -10,9 +10,14 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void ToLevel()
+    public void NewGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void ContinueFromLastLevel() 
+    {
+        SceneManager.LoadScene(1); // TO DO: REPLACE WITH SAVE SYSTEM (PlayerPrefs)!
     }
 
 }

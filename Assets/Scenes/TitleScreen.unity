@@ -341,7 +341,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2722730905649966566, guid: 9af9f6a1c1e519a46b2b2e756cbf2e35, type: 3}
         m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: ToLevel
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -578,7 +578,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2722730905649966566, guid: 9af9f6a1c1e519a46b2b2e756cbf2e35, type: 3}
         m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: ToLevel
+        m_MethodName: ContinueFromLastLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
