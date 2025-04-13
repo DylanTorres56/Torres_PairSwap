@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class SceneManagement : MonoBehaviour
 {    
@@ -12,12 +13,13 @@ public class SceneManagement : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("nSI", 1);
         SceneManager.LoadScene(1);
     }
 
     public void ContinueFromLastLevel() 
     {
-        SceneManager.LoadScene(1); // TO DO: REPLACE WITH SAVE SYSTEM (PlayerPrefs)!
+        SceneManager.LoadScene(PlayerPrefs.GetInt("nSI"));
     }
 
 }

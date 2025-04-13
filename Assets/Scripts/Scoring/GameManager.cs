@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int lifeCount; // The amount of lives the player has. Lives are lost when no ball is active.
 
     [SerializeField] int scoreToClear; // The required score needed to clear the level. MUST BE DIVISIBLE BY 100!
+    [SerializeField] int nextStageIndex; // Index of the next stage. Replaced by Stage 1 if all stages have been cleared.
+    [SerializeField] int finalStageIndex; // Index of the final stage. To be updated when new levels are added. 
     [SerializeField] int gameOverScreenIndex; // When getting a Game Over, go to this screen.
 
     // Start is called before the first frame update
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         scoreTracker.text = $"SCORE: {scoreCount}";
         lifeTracker.text = $"LIVES: {lifeCount}";
+
+        nextStageIndex = PlayerPrefs.GetInt("nSI");
     }
 
     // When this Canvas is enabled, it subscribes to the OnBrickStruck and OnLifeLost delegates.
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
         Ball.OnLifeLost -= DecrementLifeCount;
     }
 
+    // Add points to the score count. If the score to clear the stage is met, move to the next stage or loop from Stage 1!
     public void IncrementScoreCount() 
     {
         scoreCount += 100;
@@ -44,8 +50,20 @@ public class GameManager : MonoBehaviour
 
         if (scoreCount == scoreToClear) 
         {
-            SceneManager.LoadScene(gameOverScreenIndex); // Transport the player to Game Over!
+            IncrementStageCount();
+            SceneManager.LoadScene(nextStageIndex);
         }
+    }
+
+    public void IncrementStageCount() 
+    {
+        nextStageIndex++;
+        if (nextStageIndex > finalStageIndex) 
+        {
+            nextStageIndex = 1;
+        }
+
+        PlayerPrefs.SetInt("nSI", nextStageIndex);
     }
 
     public void IncrementLifeCount()

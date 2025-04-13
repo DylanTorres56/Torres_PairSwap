@@ -388,4 +388,7 @@ MonoBehaviour:
   lifeTracker: {fileID: 6246956609219059921}
   scoreCount: 0
   lifeCount: 3
-  gameOverScreenIndex: 5
+  scoreToClear: 1400
+  nextStageIndex: 1
+  finalStageIndex: 5
+  gameOverScreenIndex: 6
