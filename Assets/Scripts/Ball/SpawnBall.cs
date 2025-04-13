@@ -26,7 +26,7 @@ public class SpawnBall : MonoBehaviour
 
     // This function spawns a ball from the ball object pool.
     public void BallSpawn() 
-    {
+    {        
         StartCoroutine(PlaceBallAtSpawn());
     }
 
@@ -36,5 +36,6 @@ public class SpawnBall : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         ballPool.Spawn(Vector2.zero);
+        AudioManager.instance.PlaySFX(AudioManager.instance.gameplaySFX[1]);
     }
 }

@@ -31,6 +31,7 @@ public class Brick : MonoBehaviour, IPooledObject
     {
         if (collision.gameObject.layer == 6) 
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.gameplaySFX[UnityEngine.Random.Range(7, 10)]);
             anim.SetBool("StruckByBall", true);
             Invoke("SelfDestroy", .3f);
             OnBrickStruck?.Invoke();

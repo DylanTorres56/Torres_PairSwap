@@ -24,11 +24,17 @@ public class Ball : MonoBehaviour, IPooledObject
         OnDestroy?.Invoke(this);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        AudioManager.instance.PlaySFX(AudioManager.instance.gameplaySFX[0]);
+    }
+
     // If this ball is out of bounds, it freezes and disables itself!
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 3) 
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.gameplaySFX[2]);
             SelfDestroy();
             OnLifeLost?.Invoke();
         }
