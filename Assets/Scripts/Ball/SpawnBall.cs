@@ -10,13 +10,11 @@ public class SpawnBall : MonoBehaviour
     private void OnEnable()
     {
         Ball.OnLifeLost += BallSpawn;
-        AddBallPowerUp.OnPowerUpApplied += BallSpawn;
     }
 
     private void OnDisable()
     {
         Ball.OnLifeLost -= BallSpawn;
-        AddBallPowerUp.OnPowerUpApplied -= BallSpawn;
     }
 
     // Start is called before the first frame update
@@ -29,7 +27,14 @@ public class SpawnBall : MonoBehaviour
     // This function spawns a ball from the ball object pool.
     public void BallSpawn() 
     {
-        ballPool.Spawn(Vector2.zero);
+        StartCoroutine(PlaceBallAtSpawn());
     }
 
+    // Delay ball spawning by 0.5 seconds to make sure the player can reach the center in time.
+    // This also helps with the transition to the Game Over screen, as the ball doesn't reappear before the switch.
+    IEnumerator PlaceBallAtSpawn() 
+    {
+        yield return new WaitForSeconds(0.5f);
+        ballPool.Spawn(Vector2.zero);
+    }
 }

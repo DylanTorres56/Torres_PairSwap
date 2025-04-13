@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3732679273758664175}
   - component: {fileID: 1590622699251619827}
   - component: {fileID: 4190365157161211422}
-  - component: {fileID: 2445157019907753435}
   - component: {fileID: 4923709473206017375}
   - component: {fileID: 1808689832556959348}
   m_Layer: 0
@@ -109,22 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2445157019907753435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5098505951628123885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b396daca6038f5d47814a617c7020f14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpToApply: {fileID: 11400000, guid: 9a1ec6eff4c037c44af45f86a915164f, type: 2}
-  ballSpawner: {fileID: 0}
-  rB: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!58 &4923709473206017375
 CircleCollider2D:
   m_ObjectHideFlags: 0
