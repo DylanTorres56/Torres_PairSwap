@@ -53,10 +53,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5c54de4cd0e5c0b47b6f7224d089de42, type: 3}
   - {fileID: 8300000, guid: 6bfceb48d6b49864f9b43b511a74126a, type: 3}
   - {fileID: 8300000, guid: ef3a9d40ff26d124293d63b14039e5d8, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: faf40a93d77b0704194034ce890f9894, type: 3}
+  - {fileID: 8300000, guid: be5c14e8081b0fa489c82a790617347e, type: 3}
+  - {fileID: 8300000, guid: fddc0f36aab09ba4fb5f4d219f1c7b75, type: 3}
+  - {fileID: 8300000, guid: 941200b5c6fd8b244b634bd2e2d50e44, type: 3}
   - {fileID: 8300000, guid: 8805d8ff10c773443a4cbe6452a4dc3d, type: 3}
   - {fileID: 8300000, guid: cc35eff47f8ae6344afa4cce2287438e, type: 3}
   - {fileID: 8300000, guid: 39dcc3ebf98dae0459cd15985789b512, type: 3}
