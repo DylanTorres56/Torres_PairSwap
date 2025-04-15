@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 4714041499710941519, guid: 3b2853daebf1009408a9b047830d9e2e, type: 3}
+  poolSize: 1

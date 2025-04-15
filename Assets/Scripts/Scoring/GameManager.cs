@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreTracker; // The text displaying the player's current score.
     [SerializeField] TextMeshProUGUI lifeTracker; // The text displaying the player's current lives.
+    [SerializeField] GameObject gameOverPopup; // Rather than a new screen, a pop-up window will appear.
 
     [SerializeField] int scoreCount; // The amount of points the player has. Score is gained upon striking bricks.
     [SerializeField] int lifeCount; // The amount of lives the player has. Lives are lost when no ball is active.
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         scoreTracker.text = $"SCORE: {scoreCount}";
         lifeTracker.text = $"LIVES: {lifeCount}";
-
+        gameOverPopup.SetActive(false);
         nextStageIndex = PlayerPrefs.GetInt("nSI");
     }
 
@@ -79,7 +80,8 @@ public class GameManager : MonoBehaviour
 
         if (lifeCount <= 0) 
         {
-            SceneManager.LoadScene(gameOverScreenIndex); // Transport the player to Game Over!            
+            Ball.OnLifeLost -= DecrementLifeCount;
+            gameOverPopup.SetActive(!gameOverPopup.activeSelf);       
         }
     }
 

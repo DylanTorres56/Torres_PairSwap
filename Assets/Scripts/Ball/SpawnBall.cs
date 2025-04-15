@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnBall : MonoBehaviour
 {
     [SerializeField] GameObject ballPrefab; // The prefab of the ball to be spawned.
+    [SerializeField] int poolSize; // An int that can help adjust the pool size of the ball.
     ObjectPool<Ball> ballPool; // An object pool of the ball.
 
     private void OnEnable()
@@ -20,7 +21,7 @@ public class SpawnBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ballPool = new ObjectPool<Ball>(6, ballPrefab);
+        ballPool = new ObjectPool<Ball>(poolSize, ballPrefab);
         BallSpawn();
     }
 
