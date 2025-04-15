@@ -708,6 +708,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7528777307899588722, guid: 34f6c3e7af703f84d9b1d6a908e74dc6, type: 3}
+      propertyPath: ballSpawner
+      value: 
+      objectReference: {fileID: 8604252045283621986}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1132,6 +1136,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd859b147877fb40a504646da667cdb, type: 3}
+--- !u!114 &8604252045283621986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1591448982387778385, guid: efd859b147877fb40a504646da667cdb, type: 3}
+  m_PrefabInstance: {fileID: 8604252045283621985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c59d4bbb5e48aa408606d67b8141f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
