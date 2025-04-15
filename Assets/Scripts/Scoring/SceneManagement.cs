@@ -22,4 +22,9 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene(PlayerPrefs.GetInt("nSI"));
     }
 
+    public void QuitGame() 
+    {
+        Application.Quit();
+    }
+
 }
