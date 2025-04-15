@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         scoreTracker.text = $"SCORE: {scoreCount}";
         lifeTracker.text = $"LIVES: {lifeCount}";
         gameOverPopup.SetActive(false);
@@ -87,9 +88,15 @@ public class GameManager : MonoBehaviour
 
     // When the Game Over menu pops up, don't spawn any more balls!
     private void PopUpGameOver() 
-    {               
+    {        
         Ball.OnLifeLost -= DecrementLifeCount;
         gameOverPopup.SetActive(!gameOverPopup.activeSelf);
+        StartCoroutine(FreezeGame());
     }
 
+    IEnumerator FreezeGame() 
+    {
+        yield return new WaitForSeconds(0.01f);
+        Time.timeScale = 0;
+    }
 }

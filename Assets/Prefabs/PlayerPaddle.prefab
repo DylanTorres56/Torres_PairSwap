@@ -193,3 +193,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a135166af4ca6b4baffd086574a6dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rB: {fileID: 0}
+  movementSpeed: 0
+  paddleControls:
+    m_Name: Paddle Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c149d1e6-396d-465b-a5f5-9b8e009bafee
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: c2ef6cfb-d2ba-4273-b966-2a4862725f1b
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 8d5eaa19-d957-4c6b-a883-c055456d9286
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 3665356f-d57f-45ae-a91a-b91d5d234661
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 71418381-89ee-4e73-a118-dc7dfc260f8f
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 5f076135-9f61-479d-a81e-071a81521719
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: 2D Vector
+      m_Id: a92402aa-5273-4882-a362-f07f1dc34898
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 083461f4-aed2-4815-999a-edcd2837eaf8
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: a6901ee0-be20-47fd-8953-3afcc2a87e04
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: e1fe6237-7d8b-4f0d-8ef8-5f38231aa5a9
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: b6ff6ac2-54e0-452e-96bd-8b6fe14f25ad
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Paddle Controls
+      m_Flags: 8
+    m_Flags: 0

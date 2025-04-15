@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPaddle : MonoBehaviour, IPooledObject
 {
     [Header("Movement")]
     [SerializeField] Rigidbody2D rB; // Player's 2D rb.
     [SerializeField] float movementSpeed; // Player's movement speed.
-    [SerializeField] float hInput; // Player's horizontal input (Left = -1, Right = 1).
+    
+    public InputAction paddleControls;
 
     public event IPooledObject.OnDisable OnDestroy;
+    Vector2 moveDirection = Vector2.zero;
 
     // Awake is called on the first active frame update
     void Awake()
@@ -29,14 +32,25 @@ public class PlayerPaddle : MonoBehaviour, IPooledObject
         PlayerMovement(); // Movement is controlled by physics.
     }
 
+    void OnEnable()
+    {
+        paddleControls.Enable();
+    }
+
+    void OnDisable() 
+    {
+        paddleControls.Disable();
+    }
+
+
     void PlayerInput() 
     {
-        hInput = Input.GetAxisRaw("Horizontal"); // Sets the player's horizontal movement input.
+        moveDirection = paddleControls.ReadValue<Vector2>();
     }
 
     void PlayerMovement() 
     {
-        rB.velocity = new Vector2(hInput * movementSpeed, rB.velocity.y);
+        rB.velocity = new Vector2(moveDirection.x * movementSpeed, rB.velocity.y);
     }
 
 }
