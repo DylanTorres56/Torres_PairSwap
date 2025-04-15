@@ -8,7 +8,8 @@ public class PlayerPaddle : MonoBehaviour, IPooledObject
     [Header("Movement")]
     [SerializeField] Rigidbody2D rB; // Player's 2D rb.
     [SerializeField] float movementSpeed; // Player's movement speed.
-    
+    [SerializeField] float hMovement;
+
     public InputAction paddleControls;
 
     public event IPooledObject.OnDisable OnDestroy;
@@ -18,12 +19,6 @@ public class PlayerPaddle : MonoBehaviour, IPooledObject
     void Awake()
     {
         rB = gameObject.GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        PlayerInput(); // Inputs are counted by frame.
     }
 
     // FixedUpdate is called once per physics update
@@ -42,15 +37,14 @@ public class PlayerPaddle : MonoBehaviour, IPooledObject
         paddleControls.Disable();
     }
 
-
-    void PlayerInput() 
+    public void PlayerInput(InputAction.CallbackContext context) 
     {
-        moveDirection = paddleControls.ReadValue<Vector2>();
+        hMovement = context.ReadValue<Vector2>().x;        
     }
 
     void PlayerMovement() 
     {
-        rB.velocity = new Vector2(moveDirection.x * movementSpeed, rB.velocity.y);
-    }
+        rB.velocity = new Vector2(hMovement * movementSpeed, rB.velocity.y);
+    }    
 
 }
